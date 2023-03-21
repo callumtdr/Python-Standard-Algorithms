@@ -1,6 +1,5 @@
 numbersToCheck = [54, 32, 56, 83, 12, 53, 62, 18, 22, 54, 75]
 
-targetNum = 12
 
 def getMinNum (numbersToCheck):
 
@@ -35,7 +34,7 @@ def linearSearch(numbersToCheck):
 
     for x in range(len(numbersToCheck)):
         if numbersToCheck[x] == targetNum:
-            return x +1
+            return x
     return -1
 
 def bubbleSort(numberstoCheck):
@@ -47,10 +46,21 @@ def bubbleSort(numberstoCheck):
                 numbersToCheck[i], numbersToCheck[i+1] = numbersToCheck[i+1], numbersToCheck[i]
     return numbersToCheck
 
+def validInput():
 
-print(getMinNum(numbersToCheck))
-print(getMaxNum(numbersToCheck))
-print(countOccurence(numbersToCheck))
-print(linearSearch(numbersToCheck))
+    userInput = ""
+    try:
+        userInput = int(input("Enter a number: "))
+    except ValueError:
+        print("Error: you did not eneter a number")
+        validInput()
+    print("That was a valid Number!")
+    return userInput
+
 print(numbersToCheck)
-print(bubbleSort(numbersToCheck))
+print("The minimum value in the list is: ",(getMinNum(numbersToCheck)))
+print("The maximum value in the list is: ",(getMaxNum(numbersToCheck)))
+print("The number of values below 50 in the list is: ",(countOccurence(numbersToCheck)))
+print("The value of 12 can be found in at index: ",(linearSearch(numbersToCheck)))
+print("The sorted values are: ",(bubbleSort(numbersToCheck)))
+validInput()
